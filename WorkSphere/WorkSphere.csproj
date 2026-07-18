@@ -1,0 +1,644 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7B0FB2FF-FF80-49BC-8AA8-47D2D3770B8E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>WorkSphere</RootNamespace>
+    <AssemblyName>WorkSphere</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ClosedXML, Version=0.105.0.0, Culture=neutral, PublicKeyToken=fd1eb21b62ae805b, processorArchitecture=MSIL">
+      <HintPath>packages\ClosedXML.0.105.0\lib\netstandard2.0\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="ClosedXML.Parser, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1d5f7376574c51ec, processorArchitecture=MSIL">
+      <HintPath>packages\ClosedXML.Parser.2.0.0\lib\netstandard2.0\ClosedXML.Parser.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=3.1.1.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>packages\DocumentFormat.OpenXml.3.1.1\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml.Framework, Version=3.1.1.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>packages\DocumentFormat.OpenXml.Framework.3.1.1\lib\net46\DocumentFormat.OpenXml.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelNumberFormat, Version=1.1.0.0, Culture=neutral, PublicKeyToken=23c6f5d73be07eca, processorArchitecture=MSIL">
+      <HintPath>packages\ExcelNumberFormat.1.1.0\lib\net20\ExcelNumberFormat.dll</HintPath>
+    </Reference>
+    <Reference Include="FastMember, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\FastMember.1.5.0\lib\net461\FastMember.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.HashCode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Bcl.HashCode.1.1.1\lib\net461\Microsoft.Bcl.HashCode.dll</HintPath>
+    </Reference>
+    <Reference Include="RBush, Version=4.0.0.0, Culture=neutral, PublicKeyToken=c77e27b81f4d0187, processorArchitecture=MSIL">
+      <HintPath>packages\RBush.Signed.4.0.0\lib\net47\RBush.dll</HintPath>
+    </Reference>
+    <Reference Include="SixLabors.Fonts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d998eea7b14cab13, processorArchitecture=MSIL">
+      <HintPath>packages\SixLabors.Fonts.1.0.0\lib\netstandard2.0\SixLabors.Fonts.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.4.7.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutSystem\ctrlAboutSystem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AboutSystem\ctrlAboutSystem.Designer.cs">
+      <DependentUpon>ctrlAboutSystem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmStart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStart.Designer.cs">
+      <DependentUpon>frmStart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employees Page\Controls\ctrlEmployeeCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Employees Page\Controls\ctrlEmployeeCard.Designer.cs">
+      <DependentUpon>ctrlEmployeeCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employees Page\Controls\ctrlEmployeeCardWithFilter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Employees Page\Controls\ctrlEmployeeCardWithFilter.Designer.cs">
+      <DependentUpon>ctrlEmployeeCardWithFilter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employees Page\Employee Attendance\ctrlEmployeeAttendance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Employees Page\Employee Attendance\ctrlEmployeeAttendance.Designer.cs">
+      <DependentUpon>ctrlEmployeeAttendance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employees Page\Employee Attendance\frmAddEditEmployeeAttendance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employees Page\Employee Attendance\frmAddEditEmployeeAttendance.Designer.cs">
+      <DependentUpon>frmAddEditEmployeeAttendance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employees Page\Employee Absences\ctrlEmployeeAbsences.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Employees Page\Employee Absences\ctrlEmployeeAbsences.Designer.cs">
+      <DependentUpon>ctrlEmployeeAbsences.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employees Page\Employee Absences\frmAddEditEmployeeAbsences.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employees Page\Employee Absences\frmAddEditEmployeeAbsences.Designer.cs">
+      <DependentUpon>frmAddEditEmployeeAbsences.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employees Page\Employees Promotions\ctrlEmployeePromotions.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Employees Page\Employees Promotions\ctrlEmployeePromotions.Designer.cs">
+      <DependentUpon>ctrlEmployeePromotions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employees Page\Employees Promotions\frmAddEditPromotions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employees Page\Employees Promotions\frmAddEditPromotions.Designer.cs">
+      <DependentUpon>frmAddEditPromotions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employees Page\Employee Leaves\ctrlEmployeeLeaves.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Employees Page\Employee Leaves\ctrlEmployeeLeaves.Designer.cs">
+      <DependentUpon>ctrlEmployeeLeaves.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employees Page\Employee Leaves\frmAddEditEmployeeLeaves.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employees Page\Employee Leaves\frmAddEditEmployeeLeaves.Designer.cs">
+      <DependentUpon>frmAddEditEmployeeLeaves.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Global Classes\Class1.cs" />
+    <Compile Include="Global Classes\clsEvents.cs" />
+    <Compile Include="Global Classes\clsExcelHelper.cs" />
+    <Compile Include="Global Classes\clsMessages.cs" />
+    <Compile Include="Global Classes\clsNumericTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Global Classes\clsPermissionHelper.cs" />
+    <Compile Include="Global Classes\clsPageManager.cs" />
+    <Compile Include="Global Classes\clsUtil.cs" />
+    <Compile Include="Helper\clsPageHelper.cs" />
+    <Compile Include="Home Page\ctrlHomePage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Home Page\ctrlHomePage.Designer.cs">
+      <DependentUpon>ctrlHomePage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home Page\Loading\frmLoading.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home Page\Loading\frmLoading.Designer.cs">
+      <DependentUpon>frmLoading.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Leave Types\ctrlLeaveTypes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Leave Types\ctrlLeaveTypes.Designer.cs">
+      <DependentUpon>ctrlLeaveTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Leave Types\frmAddEditLeaveTypes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Leave Types\frmAddEditLeaveTypes.Designer.cs">
+      <DependentUpon>frmAddEditLeaveTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login\frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Roles\ctrlRoles.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Roles\ctrlRoles.Designer.cs">
+      <DependentUpon>ctrlRoles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Roles\frmAddEditRoles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Roles\frmAddEditRoles.Designer.cs">
+      <DependentUpon>frmAddEditRoles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PermissionsForRoles\ctrlPermissionForRoles.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PermissionsForRoles\ctrlPermissionForRoles.Designer.cs">
+      <DependentUpon>ctrlPermissionForRoles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PermissionsForRoles\frmAddEditPermissionForRoles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PermissionsForRoles\frmAddEditPermissionForRoles.Designer.cs">
+      <DependentUpon>frmAddEditPermissionForRoles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Salary Grades Page\Grade Steps\frmAddEditGradeSteps.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Salary Grades Page\Grade Steps\frmAddEditGradeSteps.Designer.cs">
+      <DependentUpon>frmAddEditGradeSteps.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.cs" />
+    <Compile Include="Settings\frmSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\frmSettings.Designer.cs">
+      <DependentUpon>frmSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="System Records Page\ctrlSystemRecords.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="System Records Page\ctrlSystemRecords.Designer.cs">
+      <DependentUpon>ctrlSystemRecords.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Salary Grades Page\ctrlSalaryGrades.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Salary Grades Page\ctrlSalaryGrades.Designer.cs">
+      <DependentUpon>ctrlSalaryGrades.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Salary Grades Page\frmAddEditSalaryGrade.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Salary Grades Page\frmAddEditSalaryGrade.Designer.cs">
+      <DependentUpon>frmAddEditSalaryGrade.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employees Page\Controls\ctrlEmployees.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Employees Page\Controls\ctrlEmployees.Designer.cs">
+      <DependentUpon>ctrlEmployees.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employees Page\frmAddEditEmployees.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employees Page\frmAddEditEmployees.Designer.cs">
+      <DependentUpon>frmAddEditEmployees.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Departments Page\ctrlDepartments.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Departments Page\ctrlDepartments.Designer.cs">
+      <DependentUpon>ctrlDepartments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Departments Page\frmAddEditDepartment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Departments Page\frmAddEditDepartment.Designer.cs">
+      <DependentUpon>frmAddEditDepartment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Users Page\ctrlUsers.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Users Page\ctrlUsers.Designer.cs">
+      <DependentUpon>ctrlUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Users Page\frmAddEditUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users Page\frmAddEditUser.Designer.cs">
+      <DependentUpon>frmAddEditUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Users Page\frmChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users Page\frmChangePassword.Designer.cs">
+      <DependentUpon>frmChangePassword.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AboutSystem\ctrlAboutSystem.resx">
+      <DependentUpon>ctrlAboutSystem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmStart.resx">
+      <DependentUpon>frmStart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employees Page\Controls\ctrlEmployeeCard.resx">
+      <DependentUpon>ctrlEmployeeCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employees Page\Controls\ctrlEmployeeCardWithFilter.resx">
+      <DependentUpon>ctrlEmployeeCardWithFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employees Page\Employee Attendance\ctrlEmployeeAttendance.resx">
+      <DependentUpon>ctrlEmployeeAttendance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employees Page\Employee Attendance\frmAddEditEmployeeAttendance.resx">
+      <DependentUpon>frmAddEditEmployeeAttendance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employees Page\Employee Absences\ctrlEmployeeAbsences.resx">
+      <DependentUpon>ctrlEmployeeAbsences.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employees Page\Employee Absences\frmAddEditEmployeeAbsences.resx">
+      <DependentUpon>frmAddEditEmployeeAbsences.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employees Page\Employees Promotions\ctrlEmployeePromotions.resx">
+      <DependentUpon>ctrlEmployeePromotions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employees Page\Employees Promotions\frmAddEditPromotions.resx">
+      <DependentUpon>frmAddEditPromotions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employees Page\Employee Leaves\ctrlEmployeeLeaves.resx">
+      <DependentUpon>ctrlEmployeeLeaves.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employees Page\Employee Leaves\frmAddEditEmployeeLeaves.resx">
+      <DependentUpon>frmAddEditEmployeeLeaves.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home Page\ctrlHomePage.resx">
+      <DependentUpon>ctrlHomePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home Page\Loading\frmLoading.resx">
+      <DependentUpon>frmLoading.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Leave Types\ctrlLeaveTypes.resx">
+      <DependentUpon>ctrlLeaveTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Leave Types\frmAddEditLeaveTypes.resx">
+      <DependentUpon>frmAddEditLeaveTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Roles\ctrlRoles.resx">
+      <DependentUpon>ctrlRoles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Roles\frmAddEditRoles.resx">
+      <DependentUpon>frmAddEditRoles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PermissionsForRoles\ctrlPermissionForRoles.resx">
+      <DependentUpon>ctrlPermissionForRoles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PermissionsForRoles\frmAddEditPermissionForRoles.resx">
+      <DependentUpon>frmAddEditPermissionForRoles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Salary Grades Page\Grade Steps\frmAddEditGradeSteps.resx">
+      <DependentUpon>frmAddEditGradeSteps.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\frmSettings.resx">
+      <DependentUpon>frmSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="System Records Page\ctrlSystemRecords.resx">
+      <DependentUpon>ctrlSystemRecords.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Salary Grades Page\ctrlSalaryGrades.resx">
+      <DependentUpon>ctrlSalaryGrades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Salary Grades Page\frmAddEditSalaryGrade.resx">
+      <DependentUpon>frmAddEditSalaryGrade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employees Page\Controls\ctrlEmployees.resx">
+      <DependentUpon>ctrlEmployees.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employees Page\frmAddEditEmployees.resx">
+      <DependentUpon>frmAddEditEmployees.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Departments Page\ctrlDepartments.resx">
+      <DependentUpon>ctrlDepartments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Departments Page\frmAddEditDepartment.resx">
+      <DependentUpon>frmAddEditDepartment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users Page\ctrlUsers.resx">
+      <DependentUpon>ctrlUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users Page\frmAddEditUser.resx">
+      <DependentUpon>frmAddEditUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users Page\frmChangePassword.resx">
+      <DependentUpon>frmChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.manifest" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WorkSphere_Buisness\WorkSphere_Buisness.csproj">
+      <Project>{c416a2d5-1d04-4241-9e61-cee2b58701b2}</Project>
+      <Name>WorkSphere_Buisness</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WrokSphere_Shared\WrokSphere_Shared.csproj">
+      <Project>{b8041beb-6baa-4689-8462-da6d24078313}</Project>
+      <Name>WrokSphere_Shared</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\report %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Question Mark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Salary.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Users.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\employee %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\export.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Loading gif.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Records.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\retirement.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\notification-bell %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\padlock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\excel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\left-arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\right-arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xls.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Employee-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Salary-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Users-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Record-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Report-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Settings-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Help-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LoginUser-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Login-account.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Login-gif.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Password-gif.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Login-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\absence-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Employees Count -64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Late-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Leave-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pending-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\attendanc-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UserLogout-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checked-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settings-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Address-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Calendar-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Email-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\id-card-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\man-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Number-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\question-mark-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\woman-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\department-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Job-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Name-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\departments-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Promotions-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vacations-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\info-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WorkSphere-Icon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Permissions_Roles-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Permissions-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Roles-64.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
